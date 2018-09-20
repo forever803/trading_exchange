@@ -98,14 +98,25 @@ public:
 // order
 class orderid_gen_t {
 public:
+	// @brief orderid 生成(规则: 64位整数, 高32位为当前时间,低32位为1秒内自增长字段)
 	static int64_t gen() {
-		static int32_t incr = 0;
-
+		// 获取当前时间秒数
 		using namespace std::chrono;
 		system_clock::time_point tp = system_clock::now();
 		system_clock::duration dtn = tp.time_since_epoch();
-		int64_t orderid 
+		int32_t seconds
 			= dtn.count() * system_clock::period::num / system_clock::period::den;
+		
+		static int32_t incr = 0;
+		static int32_t incr_update_time = seconds;
+		if (seconds > incr_update_time) {
+			// 不在同一秒内, incr 重新计数
+			incr = 0;
+			incr_update_time = seconds;
+		}
+		
+		// orderid 生成
+		int64_t orderid = seconds; 
 		orderid <<= 32;
 		orderid |= incr++;
 
