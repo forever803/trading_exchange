@@ -26,7 +26,7 @@ public:
 	// @param price 报单价格
 	// @param volume 报单数量
 	// @return 报单编号
-	int64_t order_insert(direction_type_t direction, double price, int32_t volume);
+	int64_t order_insert(direction_type_t direction, int64_t price, int32_t volume);
 
 	// @brief 查询报单信息
 	order_info_t *query_order_info(int64_t orderid);
@@ -45,7 +45,7 @@ private:
 	// @param orderid 报单编号
 	// @param price 成交价格
 	// @param volume 成交数量
-	void order_deal(int64_t orderid, double price, int32_t volume);
+	void order_deal(int64_t orderid, int64_t price, int32_t volume);
 
 private:
 	void clear() {

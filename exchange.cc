@@ -1,7 +1,7 @@
 #include <iostream>
 #include "exchange.h"
 
-int64_t exchange_t::order_insert(direction_type_t direction, double price, int32_t volume)
+int64_t exchange_t::order_insert(direction_type_t direction, int64_t price, int32_t volume)
 {
 	int64_t orderid = orderid_gen_t::gen();
 
@@ -128,7 +128,7 @@ void exchange_t::bid_order_exchange(order_info_t *order_info)
 
 }
 
-void exchange_t::order_deal(int64_t orderid, double price, int32_t volume)
+void exchange_t::order_deal(int64_t orderid, int64_t price, int32_t volume)
 {
 	order_info_t *order_info = query_order_info(orderid);
 	if (order_info) {

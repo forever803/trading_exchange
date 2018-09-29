@@ -15,11 +15,11 @@ enum direction_type_t : int8_t
 // 卖档key
 class ask_key_t {
 public:
-	ask_key_t(double p, int64_t id) : price(p), orderid(id) { }
+	ask_key_t(int64_t p, int64_t id) : price(p), orderid(id) { }
 	~ask_key_t() { }
 
 public:
-	double price;		// 价格
+	int64_t price;		// 价格
 	int64_t orderid;	// 委托编号
 
 public:
@@ -39,11 +39,11 @@ public:
 // 买档key
 class bid_key_t {
 public:
-	bid_key_t(double p, int64_t id) : price(p), orderid(id) { }
+	bid_key_t(int64_t p, int64_t id) : price(p), orderid(id) { }
 	~bid_key_t() { }
 
 public:
-	double price;		// 价格
+	int64_t price;		// 价格
 	int64_t orderid;	// 委托编号
 
 public:
@@ -64,7 +64,7 @@ public:
 // 报单信息
 class order_info_t {
 public:
-	order_info_t(int64_t id, direction_type_t d, double p, int32_t v): 
+	order_info_t(int64_t id, direction_type_t d, int64_t p, int32_t v): 
 		orderid(id), direction(d), 
 		price(p), volume(v),
 		completed_vol(0) 
@@ -74,7 +74,7 @@ public:
 
 public:
 	// 成交
-	void exchange(double price, int32_t volume) {
+	void exchange(int64_t price, int32_t volume) {
 		details_t d {price, volume};
 		completed_vol += volume;
 		details_vect.push_back(d);
@@ -82,14 +82,14 @@ public:
 
 public:
 	struct details_t {
-		double price;
+		int64_t price;
 		int32_t volume;
 	};
 
 public:
 	int64_t orderid;				// 报单id
 	direction_type_t direction;		// 买卖方向
-	double price;					// 报单价格
+	int64_t price;					// 报单价格
 	int32_t volume;					// 报单数量
 	int32_t completed_vol;			// 成交数量
 	std::vector<details_t> details_vect;	// 成交明细

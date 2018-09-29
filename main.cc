@@ -5,22 +5,22 @@
 int main() {
 	exchange_t exchange;
 
-	exchange.order_insert(direction_type_t::BUY, 10.0, 100);
-	exchange.order_insert(direction_type_t::BUY, 11.0, 100);
-	exchange.order_insert(direction_type_t::BUY, 12.0, 100);
-	exchange.order_insert(direction_type_t::BUY, 10.0, 100);
-	exchange.order_insert(direction_type_t::BUY, 10.0, 100);
-	exchange.order_insert(direction_type_t::BUY, 10.0, 100);
-	exchange.order_insert(direction_type_t::SELL, 10.0, 200);
-	exchange.order_insert(direction_type_t::SELL, 10.0, 100);
+	exchange.order_insert(direction_type_t::BUY, 1012, 100);
+	exchange.order_insert(direction_type_t::BUY, 1111, 100);
+	exchange.order_insert(direction_type_t::BUY, 1245, 100);
+	exchange.order_insert(direction_type_t::BUY, 1012, 100);
+	exchange.order_insert(direction_type_t::BUY, 1012, 100);
+	exchange.order_insert(direction_type_t::BUY, 1012, 100);
+	exchange.order_insert(direction_type_t::SELL, 1012, 200);
+	exchange.order_insert(direction_type_t::SELL, 1012, 100);
 
 
-	exchange.order_insert(direction_type_t::SELL, 12.0, 400);
-	exchange.order_insert(direction_type_t::SELL, 13.0, 600);
-	exchange.order_insert(direction_type_t::SELL, 14.0, 800);
-	exchange.order_insert(direction_type_t::BUY, 12.0, 100);
-	exchange.order_insert(direction_type_t::BUY, 14.0, 400);
-	exchange.order_insert(direction_type_t::BUY, 11.0, 100);
+	exchange.order_insert(direction_type_t::SELL, 1224, 400);
+	exchange.order_insert(direction_type_t::SELL, 1332, 600);
+	exchange.order_insert(direction_type_t::SELL, 1440, 800);
+	exchange.order_insert(direction_type_t::BUY, 1224, 100);
+	exchange.order_insert(direction_type_t::BUY, 1440, 400);
+	exchange.order_insert(direction_type_t::BUY, 1111, 100);
 
 	return 0;
 }
